@@ -27,7 +27,7 @@ public:
 
 
 private:
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	float OpenAngle = -90.0f;
 
 	UPROPERTY(EditAnywhere)
