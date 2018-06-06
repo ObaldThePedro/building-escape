@@ -29,6 +29,20 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Get player viewpoint this tick
+	FVector PlayerViewPointLocation;
+	FRotator PlayerViewPointRotation;
+	
+	
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(
+		PlayerViewPointLocation, PlayerViewPointRotation);
+	FString Object = GetOwner()->GetName();
+	//Log to do the test
+	UE_LOG(LogTemp, Warning, TEXT("%s location: %s and rotation: %s"), *Object,
+		*PlayerViewPointLocation.ToString(),
+		*PlayerViewPointRotation.ToString());
+	// Raycast out to reach distance.
+
+	// See what we hit
 }
 
