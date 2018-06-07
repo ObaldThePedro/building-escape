@@ -38,9 +38,23 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 		PlayerViewPointLocation, PlayerViewPointRotation);
 	FString Object = GetOwner()->GetName();
 	//Log to do the test
-	UE_LOG(LogTemp, Warning, TEXT("%s location: %s and rotation: %s"), *Object,
+	/*UE_LOG(LogTemp, Warning, TEXT("%s location: %s and rotation: %s"), *Object,
 		*PlayerViewPointLocation.ToString(),
-		*PlayerViewPointRotation.ToString());
+		*PlayerViewPointRotation.ToString()
+	);*/
+	
+	FVector LineTraceEnd = PlayerViewPointLocation + (PlayerViewPointRotation.Vector() * Reach);
+	//Draw a red trace to visualize
+	DrawDebugLine(GetWorld(),
+		PlayerViewPointLocation,
+		LineTraceEnd,
+		FColor(255, 0, 0),
+		false,
+		0.0f,
+		0.0f,
+		10.0f
+	);
+
 	// Raycast out to reach distance.
 
 	// See what we hit
