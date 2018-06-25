@@ -31,4 +31,6 @@ private:
 
 	//Ray cast whats in reach
 	void Grab();
+	//Release when not in reach
+	void Release();
 };
