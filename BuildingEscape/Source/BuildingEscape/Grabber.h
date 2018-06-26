@@ -25,12 +25,25 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
+	
 	float Reach = 100.0f;
+	
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	
 	UInputComponent* Input = nullptr;
 
 	//Ray cast whats in reach
 	void Grab();
+	
 	//Release when not in reach
 	void Release();
+	
+	//Find attached physics handle
+	void FindPhysicsHandleComponent();
+
+	//Setup input component
+	void SetupInputComponent();
+
+	//return hit for first physics body in reach
+	const FHitResult GetFirstPhysicsBodyinReach();
 };
