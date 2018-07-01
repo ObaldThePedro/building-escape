@@ -26,6 +26,9 @@ public:
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
 
 
+	float GetTotalMassOfActorsInPlate();
+
+
 private:
 	UPROPERTY(EditAnywhere)
 	float OpenAngle = -90.0f;
@@ -38,7 +41,6 @@ private:
 
 	float LastDoorOpenTime;
 
-	AActor* ActorThatOpens; // Remember pawn inherits from actor
-	AActor* Owner; // The owning door
 
+	AActor* Owner; // The owning door
 };
